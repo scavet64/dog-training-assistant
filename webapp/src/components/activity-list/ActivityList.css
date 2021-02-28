@@ -1,0 +1,42 @@
+#activity-list {
+  text-align: center;
+  max-width: 520px;
+  margin: 10px;
+  width: 100%;
+}
+
+#activity-list h2 {
+  color: #ffffff;
+}
+
+#activity-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activity-button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.activity-button {
+  margin: 1rem 0rem;
+  padding: 1rem;
+  color: white;
+  background-color: #0f4c75;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 5em;
+  border-width: 0px;
+}
+
+.activity-button:hover {
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
