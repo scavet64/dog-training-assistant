@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     console.log('Trying to get list of activities');
     try {
-        const activities = await ActivityModel.find();
+        const activities = await ActivityModel.find().sort([['createdAt', -1]]);
         res.status(200).json(activities);
         console.log('Fetched Activities');
     } catch (err) {
