@@ -19,5 +19,17 @@ services:
       - ./env/server.env
     depends_on:
       - mongodb
+  webapp:
+    build: ./webapp
+    ports: 
+      - '3006:3000'
+    volumes: 
+      - ./webapp/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on: 
+      - backend
+    links:
+      - backend
 volumes: 
   data:
