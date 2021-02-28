@@ -1,5 +1,6 @@
 import http from "http";
 import express from "express";
+import cors from "cors";
 
 // mongo connection
 import "./config/mongo.js";
@@ -8,6 +9,9 @@ import "./config/mongo.js";
 import activityController from "./controllers/activity-controller.js";
 
 const app = express();
+
+//If your using express in your node server just add
+app.use(cors())
 
 /** Get port from environment and store in Express. */
 const port = process.env.PORT;
