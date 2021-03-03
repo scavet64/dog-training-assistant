@@ -86,7 +86,7 @@ export const ActivityList = () => {
       {loadedActivities.length === 0 && !isLoading && (
         <p>No Activities found. Start adding some!</p>
       )}
-      <ul>
+      <div>
         {loadedActivities.map((activity) => (
           <ActivityItem
             key={activity._id}
@@ -96,7 +96,7 @@ export const ActivityList = () => {
             onDelete={removeActivityHandler}
           />
         ))}
-      </ul>
+      </div>
     </section>
   );
 };
