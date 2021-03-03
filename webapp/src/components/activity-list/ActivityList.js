@@ -9,6 +9,10 @@ import ErrorAlert from "../error-alert/ErrorAlert";
 import PeeActivity from "../activity/PeeActivity";
 import PoopActivity from "../activity/PoopActivity";
 
+import { Fab } from "@material-ui/core/";
+import AddIcon from "@material-ui/icons/Add";
+import FixedBottom from "../ui/FixedBottom/FixedBottom";
+
 export const ActivityList = () => {
   const [loadedActivities, setLoadedActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -61,14 +65,20 @@ export const ActivityList = () => {
 
   return (
     <section id="activity-list">
+      <FixedBottom offset={20}>
+        <Fab color="primary" aria-label="add" className="fab" size="large">
+          <AddIcon />
+        </Fab>
+      </FixedBottom>
+
       {error && <ErrorAlert errorText={error} />}
       <h3>Add New Activity</h3>
       <div className="activity-button-container">
         <button className="activity-button" onClick={() => createActivity("1")}>
-          <PeeActivity width={buttonSize} height={buttonSize}/>
+          <PeeActivity width={buttonSize} height={buttonSize} />
         </button>
         <button className="activity-button" onClick={() => createActivity("2")}>
-          <PoopActivity width={buttonSize} height={buttonSize}/>
+          <PoopActivity width={buttonSize} height={buttonSize} />
         </button>
       </div>
 
