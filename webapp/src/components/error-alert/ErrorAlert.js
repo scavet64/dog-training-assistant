@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ErrorAlert.css';
+import './ErrorAlert.scss';
 
 function ErrorAlert(props) {
   return (

@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { ActivityItem } from "../activity/ActivityItem";
 
-import "./ActivityList.css";
+import "./ActivityList.scss";
 import ErrorAlert from "../error-alert/ErrorAlert";
 import PeeActivity from "../activity/PeeActivity";
 import PoopActivity from "../activity/PoopActivity";

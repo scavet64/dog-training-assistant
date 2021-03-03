@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import { FaTrashAlt } from "react-icons/fa";
 
 
-import "./ActivityItem.css";
+import "./ActivityItem.scss";
 import PoopActivity from "./PoopActivity";
 import PeeActivity from "./PeeActivity";
 
