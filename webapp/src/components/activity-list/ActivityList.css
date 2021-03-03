@@ -32,6 +32,14 @@
   cursor: pointer;
   width: 5em;
   border-width: 0px;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
 }
 
 .activity-button:hover {

@@ -11,6 +11,10 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   max-width: 500px;
+
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
 }
 
 .remove-button {
@@ -24,12 +28,16 @@
   width: 3rem;
   height: 3rem;
   color: black;
-}
-
-.remove-button:hover {
+  border-style: solid;
   -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+}
+
+.remove-button:hover {
+  -webkit-box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, 0.5);
   transition: 0.5s;
 }
 

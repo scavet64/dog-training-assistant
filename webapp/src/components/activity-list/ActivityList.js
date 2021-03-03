@@ -1,22 +1,18 @@
 import { backendUrl } from "../../config/env";
 
 import axios from "axios";
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ActivityItem } from "../activity/ActivityItem";
 
 import "./ActivityList.css";
 import ErrorAlert from "../error-alert/ErrorAlert";
+import PeeActivity from "../activity/PeeActivity";
+import PoopActivity from "../activity/PoopActivity";
 
 export const ActivityList = () => {
   const [loadedActivities, setLoadedActivities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const state = {
-    loading: true,
-    hasActivity: false,
-    activities: [],
-  };
 
   async function removeActivityHandler(activityId) {
     axios
@@ -61,21 +57,23 @@ export const ActivityList = () => {
     loadActivity();
   }, []);
 
+  const buttonSize = "40px";
+
   return (
     <section id="activity-list">
       {error && <ErrorAlert errorText={error} />}
       <h3>Add New Activity</h3>
       <div className="activity-button-container">
         <button className="activity-button" onClick={() => createActivity("1")}>
-          💧
+          <PeeActivity width={buttonSize} height={buttonSize}/>
         </button>
         <button className="activity-button" onClick={() => createActivity("2")}>
-          💩
+          <PoopActivity width={buttonSize} height={buttonSize}/>
         </button>
       </div>
 
       <h3>Latest Activities</h3>
-      {loadedActivities.length === 0 && (
+      {loadedActivities.length === 0 && !isLoading && (
         <p>No Activities found. Start adding some!</p>
       )}
       <ul>
