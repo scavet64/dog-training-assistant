@@ -31,11 +31,12 @@ export const ActivityList = () => {
       });
   }
 
-  async function createActivity(type) {
+  async function createActivity(type, date) {
     axios
-      .post(`${backendUrl}/activity/`, { type: type })
+      .post(`${backendUrl}/activity/`, { type, date})
       .then((response) => {
         setLoadedActivities((prevActivity) => {
+          console.log(response.data.activity);
           const updatedActivities = [response.data.activity, ...prevActivity];
           return updatedActivities;
         });
@@ -49,15 +50,31 @@ export const ActivityList = () => {
       });
   }
 
-  useEffect(function () {
-    async function loadActivity() {
-      const res = await axios.get(backendUrl + "/activity");
-      if (res && res.data && res.data.length > 0) {
-        setLoadedActivities(res.data);
-        setIsLoading(false);
-      }
-    }
+  async function editActivity(activity) {
+    axios
+      .put(`${backendUrl}/activity/`, { activity })
+      .then((response) => {
+        console.log(response);
+        loadActivity();
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(
+          error.message ||
+            "Adding activity failed - the server responded with an error."
+        );
+      });
+  }
 
+  async function loadActivity() {
+    const res = await axios.get(backendUrl + "/activity");
+    if (res && res.data && res.data.length > 0) {
+      setLoadedActivities(res.data);
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(function () {
     loadActivity();
   }, []);
 
@@ -74,10 +91,10 @@ export const ActivityList = () => {
       {error && <ErrorAlert errorText={error} />}
       <h3>Add New Activity</h3>
       <div className="activity-button-container">
-        <button className="activity-button" onClick={() => createActivity("1")}>
+        <button className="activity-button" onClick={() => createActivity("1", new Date())}>
           <PeeActivity width={buttonSize} height={buttonSize} />
         </button>
-        <button className="activity-button" onClick={() => createActivity("2")}>
+        <button className="activity-button" onClick={() => createActivity("2", new Date())}>
           <PoopActivity width={buttonSize} height={buttonSize} />
         </button>
       </div>
@@ -89,11 +106,13 @@ export const ActivityList = () => {
       <div>
         {loadedActivities.map((activity) => (
           <ActivityItem
+            activity={activity}
             key={activity._id}
             id={activity._id}
             activityType={activity.activityType}
-            date={activity.createdAt}
+            date={activity.activityDate || activity.createdAt}
             onDelete={removeActivityHandler}
+            onEdit={editActivity}
           />
         ))}
       </div>
