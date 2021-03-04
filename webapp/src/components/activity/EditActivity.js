@@ -4,8 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
+  DatePicker,
+  TimePicker,
 } from "@material-ui/pickers";
 
 import Button from '@material-ui/core/Button';
@@ -15,7 +15,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function EditActivity(props) {
-  // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = React.useState(
     new Date(props.currentDate)
   );
@@ -34,7 +33,7 @@ export default function EditActivity(props) {
       <DialogContent>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container justify="space-around" direction="column">
-            <KeyboardDatePicker
+            <DatePicker
               margin="normal"
               id="date-picker-dialog"
               label="Activity Date"
@@ -45,7 +44,7 @@ export default function EditActivity(props) {
                 "aria-label": "change date",
               }}
             />
-            <KeyboardTimePicker
+            <TimePicker
               margin="normal"
               id="time-picker"
               label="Activity Time"
