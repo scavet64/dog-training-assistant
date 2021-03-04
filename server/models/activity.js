@@ -11,7 +11,8 @@ const activitySchema = new Schema({
         type: String,
         default: () => uuidv4(),
     },
-    activityType: String
+    activityType: String,
+    activityDate: Date
 }, {
     timestamps: true,
 });
