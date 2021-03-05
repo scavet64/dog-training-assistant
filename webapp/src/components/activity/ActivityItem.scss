@@ -2,7 +2,7 @@
 
 .activity-item {
   margin: 1rem 0;
-  padding: 2rem;
+  padding: 1.25rem;
   border: 1px solid $primary-color;
   color: $primary-text-color;
   background-color: $primary-color;
@@ -12,11 +12,13 @@
   border-radius: 30px;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
+  place-items: center;
   max-width: 500px;
 
   -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5);
+  
 }
 
 .remove-button {
@@ -50,7 +52,7 @@
   display: grid;
   place-items: center;
   font-size: 2.5rem;
-  width: 3.5rem;
+  width: 6rem;
 }
 
 .remove-button-icon {
