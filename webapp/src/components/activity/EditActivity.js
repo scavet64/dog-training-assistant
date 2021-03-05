@@ -28,6 +28,7 @@ export default function EditActivity(props) {
       open={props.open}
       onClose={props.handleCancel.bind(null)}
       aria-labelledby="form-dialog-title"
+      fullWidth={true}
     >
       <DialogTitle id="form-dialog-title">Edit Activity</DialogTitle>
       <DialogContent>
